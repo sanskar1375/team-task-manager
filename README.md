@@ -2,7 +2,7 @@
 
 > Full-stack team task manager with role-based access control (Admin / Member), per-project Kanban boards, and a personal dashboard.
 
-**Live URL:** _add your Railway URL here after deploying_
+**Live URL:** <https://app-production-b20b.up.railway.app>
 **Demo video:** _add your 2–5 min walkthrough link here_
 
 ---
