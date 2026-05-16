@@ -5,8 +5,8 @@
   "description": "Team Task Manager — full-stack hiring assessment build (Express + React + Prisma + Postgres).",
   "scripts": {
     "dev": "concurrently -k -n api,web -c blue,green \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
-    "build": "npm --prefix client ci && npm --prefix client run build && npm --prefix server ci && npx --prefix server prisma generate && npm --prefix server run build",
-    "start": "npx --prefix server prisma migrate deploy && node server/dist/index.js",
+    "build": "npm --prefix client ci && npm --prefix client run build && npm --prefix server ci && npm --prefix server run generate && npm --prefix server run build",
+    "start": "npm --prefix server run migrate:deploy && node server/dist/index.js",
     "seed": "npm --prefix server run seed",
     "typecheck": "npm --prefix server run typecheck && npm --prefix client run typecheck"
   },
