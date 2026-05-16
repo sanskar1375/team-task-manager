@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+build/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Prisma
+server/prisma/migrations/dev.db*
+
+# Coverage
+coverage/
+
+# Sisyphus / agent scratch
+.sisyphus/
+
+# Local-only artifacts
+team-task-manager-prompt.md

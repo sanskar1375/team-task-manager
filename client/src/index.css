@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+:root {
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-slate-900 transition-colors duration-200;
+  }
+  :root.dark body {
+    @apply bg-[#0b0d12] text-slate-100;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href],
+  summary,
+  label[for],
+  select,
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  [type="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-indigo-500/40 ring-offset-2 ring-offset-white dark:ring-indigo-400/40 dark:ring-offset-[#0b0d12];
+    border-radius: 0.5rem;
+  }
+}
+
+@layer utilities {
+  .press {
+    transition-property: transform, background-color, color, box-shadow, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  .press:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  @keyframes ttm-fade-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-in-fast {
+    animation: ttm-fade-in 180ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  @keyframes ttm-scale-in {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  .animate-scale-in {
+    animation: ttm-scale-in 160ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  @keyframes ttm-slide-down {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slide-down {
+    animation: ttm-slide-down 220ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
